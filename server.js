@@ -1,13 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const passport = require('passport')
 
 
-const usersRoute = require('./routes/api/Users');
-const profileRoute = require('./routes/api/Profile');
-const postsRoute = require('./routes/api/Posts');
+const usersRoute = require('./routes/api/Users.route');
+const profileRoute = require('./routes/api/Profile.route');
+const postsRoute = require('./routes/api/Posts.route');
 
 
 const app = express();
+
+// body bodyParser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 // datanbase configurations
@@ -25,10 +31,18 @@ mongoose.connect(dataBase, {
       console.log(error)
    })
 
+
+// passport middleWare here
+app.use(passport.initialize());
+
+// passport Config
+require('./config/passport')(passport);
+
 // Used Routes
 app.use('/api/users', usersRoute);
 app.use('/api/profile', usersRoute);
 app.use('/api/posts', usersRoute);
+
 
 
 

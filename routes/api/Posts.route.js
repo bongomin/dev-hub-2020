@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 // @Route Get api/posts/
-// @Test posts root Route
+// @desc posts root Route
 //@Access Public
 router.get('/posts', (req, res) => {
    res.status(200).json({ msg: 'posts roots' })

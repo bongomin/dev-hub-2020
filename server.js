@@ -40,8 +40,8 @@ require('./config/passport')(passport);
 
 // Used Routes
 app.use('/api/users', usersRoute);
-app.use('/api/profile', usersRoute);
-app.use('/api/posts', usersRoute);
+app.use('/api/profile', profileRoute);
+app.use('/api/posts', postsRoute);
 
 
 

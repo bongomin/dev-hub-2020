@@ -10,7 +10,7 @@ const validateExperienceInput = require('../../validation/experience.validation'
 const validateEducationInput = require('../../validation/education.validation')
 
 
-// @Route Get api/profile/tes
+// @Route Get api/profile/test
 // @desc Test profile root Route
 //@Access Public
 router.get('/test', (req, res) => {

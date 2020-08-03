@@ -35,6 +35,7 @@ router.post('/register', (req, res) => {
    User.findOne({ email: req.body.email })
       .then(user => {
          if (user) {
+            console.log(req.body.name, req.body.email, req.body.password)
             errors.email = 'Email already Exists buddy..!';
             return res.status(400).json(errors)
          } else {
@@ -47,7 +48,7 @@ router.post('/register', (req, res) => {
                password: req.body.password,
                avatar: avatar
             })
-
+            console.log(newUser)
             // using bycrpt to encript the password before saving
             bycrypt.genSalt(10, (err, salt) => {
                bycrypt.hash(newUser.password, salt, (err, hash) => {

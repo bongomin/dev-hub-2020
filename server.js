@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const passport = require('passport')
+const passport = require('passport');
+var morgan = require('morgan')
+
 
 
 const usersRoute = require('./routes/api/Users.route');
@@ -14,6 +16,9 @@ const app = express();
 // body bodyParser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(morgan('tiny')
+)
 
 
 // datanbase configurations
